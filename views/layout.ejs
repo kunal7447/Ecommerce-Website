@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  </head>
+  <body>
+    <h1><center>Hi <%= u[0].name  %>, your order is</center></h1>
+    <table class="table table-dark table-striped">
+      
+       
+        
+        <% var s=""; %>
+<% var c=0; %>
+<% for(var i=0;i< o[0].productlist.length;i++) { %>
+  <% if(o[0].productlist[i]==" ") { %>
+    <% c++; %>
+    <% if(c%2==0) { %>
+      <tr>
+        <td><%= s %></td>
+      </tr>
+      <% s=""; %>
+    <% } else { %>
+      <% s=s+o[0].productlist[i]; %>
+    <% } %>
+  <% } else { %>
+    <% s=s+o[0].productlist[i]; %>
+  <% } %>
+<% } %>
+
+
+  </table>
+  <h1>Your Total Amount : <%= o[0].amount %></h1>
+    <form  action="/pay" method="post">
+      <input type="hidden" name="uid" value="<%= u[0].id %>">
+      <input type="hidden" name="name" value="<%= u[0].name %>">
+      <input type="hidden" name="oid" value="<%= o[0].oid %>">
+      <button type="submit" name="button">pay now</button>
+    </form>
+    <form  action="/late" method="post">
+      <input type="hidden" name="uid" value="<%= u[0].id %>">
+      <input type="hidden" name="oid" value="<%= o[0].oid %>">
+      <button type="submit" name="button">pay later</button>
+    </form>
+
+  </body>
+</html>

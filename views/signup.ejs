@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  </head>
+  <body>
+  
+    <div class="main">
+      <div class="col-md-6 col-sm-12">
+         <div class="login-form">
+            <form class="" action="/signup" method="post">
+               <div class="form-group">
+                 <label>Username</label>
+               </div>
+               <input type="text" name="name"  placeholder="Enter the username" required >
+               <br>
+               <br>
+               <div class="form-group">
+                 <label>Password</label>
+               </div>
+               <input type="text" name="password" placeholder="Enter the password" required>
+               <br>
+               <br>
+               <div class="form-group">
+                <label>Address</label>
+              </div>
+              <input type="text" name="address" placeholder="Enter the Address" required>
+              <br>
+              <br>
+              <button type="submit" name="submit" value="old">submit</button>
+            </form>
+            
+            <br>
+            <form class="" action="/login" method="post">
+              <button type="submit" name="submit" class="login">Back to Login</button>
+             </form>
+         </div>
+      </div>
+    </div>
+    
+    
+    
+    <% if(ch==1){%>
+      <p>user with same name or password already exists</p>
+    <%}%>
+  </body>
+</html>
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+

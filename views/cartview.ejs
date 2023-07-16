@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  </head>
+  <body>
+    <h1><center><%= u[0].name %> cart is</center> </h1>
+    <table class="table table-dark table-striped">
+      <tr>
+
+      </tr>
+    <% for(var i=0 ; i<c.length ; i++){ %> <tr>
+
+      <form class="" action="/addminus" method="post">
+      <%  if(c[i].count>0){ %>
+          <td><%= c[i].name_p %></td> <td><%= c[i].count %></td>  <td><%= c[i].prize %></td> 
+
+          <input type="hidden" name="pid" value=<%= c[i].pid %>>
+          <input type="hidden" name="count" value=<%= c[i].count %>>
+          <input type="hidden" name="uid" value=<%= u[0].id %>>
+          <td><button type="submit" name="work" value="1">+</button></td>
+          <td><button type="submit" name="work" value="0">-</button></td>
+        
+
+          <br>
+
+<%   } %>
+
+        </form>
+        <form class="" action="/backp" method="post">
+          <input type="hidden" name="pid" value=<%= c[i].pid %>>
+          <input type="hidden" name="count" value=<%= c[i].count %>>
+          <input type="hidden" name="uid" value=<%= u[0].id %>>
+           <% if(i==c.length-1){ %>
+          <button type="submit" name="button">back to products</button>
+      <%  }%>
+
+        </form>
+        <form class="" action="/placeorder" method="post">
+          <input type="hidden" name="pid" value=<%= c[i].pid %>>
+          <input type="hidden" name="count" value=<%= c[i].count %>>
+          <input type="hidden" name="uid" value=<%= u[0].id %>>
+
+          <% if(i==c.length-1 && c[i].count>0){ %>
+         <button type="submit" name="button">place order</button>
+     <%  }%>
+
+        </form>
+
+
+
+
+<% } %>
+</table>
+<%   if(ch==1){ %>
+  <label>product not availabe</label>
+<%   } %>
+  </body>
+</html>

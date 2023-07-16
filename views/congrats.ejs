@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div><h1><center>Your order is confirmed , <%= u[0].name %></center></h1></div>
+    <form  action="/goback" method="post">
+      <input type="hidden" name="uid" value="<%= u[0].id %>">
+      <button class="tanny1" type="submit" name="button" >products</button>
+    </form>
+  </body>
+</html>

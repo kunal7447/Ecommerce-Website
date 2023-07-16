@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  </head>
+  <body>
+    <div class="heading">
+      <br>
+    <h1><center> Hello <%= u[0].name %> ,Welcome to FUSION</center></h1>
+    <form class="heading_logout" action="/logout" method="post">
+      <button type="submit" name="button" >logout</button>
+     </form>
+    <br>
+  </div>
+  <div>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Sr no</th>
+          <th scope="col">Name</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+    <% for(var i=0; i<rp.length; i++) { %>
+      <tr>
+      <%  if(rp[i].quantity>0){ %>
+         <p><td><%= rp[i].pid %></td> <td><%= rp[i].name_p %></td> <td><%= rp[i].prize %></td></p>
+         <form class="" action="/addcart" method="post">
+           <input type="hidden" name="pid" value=<%= rp[i].pid %>>
+           <input type="hidden" name="prize" value=<%= rp[i].prize %>>
+           <input type="hidden" name="name" value=<%= rp[i].name_p %>>
+           <input type="hidden" name="uid" value=<%= u[0].id %>>
+           <input type="hidden" name="uname" value=<%= u[0].name %>>
+           <input type="hidden" name="up" value=<%= u[0].password %>>
+           <td><button type="submit" name="button">Add to Cart</button>
+         </form>
+       <% } %>
+      </tr>
+
+      <% } %>
+    </table>
+  </div>
+
+
+<div>
+  <form class="" action="/cartview" method="post">
+    <input type="hidden" name="uid" value=<%= u[0].id %>>
+    <button type="submit" name="button">view my cart</button>
+    
+</form>
+<br>
+<br>
+<form  action="/display" method="post">
+  <input type="hidden" name="uid" value=<%= u[0].id %>>
+  <button type="submit" name="button">show my orders</button>
+ </form>
+
+
+</div>
+  
+  </body>
+</html>

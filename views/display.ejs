@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1><center> Hi <%= u[0].name %> , your orders are </center> </h1>
+    </div>
+    
+    <table class="table table-dark table-striped">
+      <tr>
+        <th scope="col">order id</th>
+        <th scope="col">Products</th>
+        <th scope="col">Total Amount</th>
+      </tr>
+    <% for(var i = 0;i<o.length;i++){ %>
+      <tr>
+      <p> <td> <%= o[i].oid %> </td> <td><%= o[i].productlist %> </td> <td> <%= o[i].amount %></td></p>
+      </tr>
+  <%  }  %>
+      
+</table>
+  <form action="/goback" method="post">
+   <input type="hidden" name="uid" value="<%= u[0].id %>">
+   <button type="submit" name="button">products</button>
+  </form>
+  </body>
+</html>
